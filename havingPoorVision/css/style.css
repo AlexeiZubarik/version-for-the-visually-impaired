@@ -101,22 +101,22 @@
     font-size: 22px !important;
 }
 
-.black-text-white-fonts {
+.black-text-white-background {
     background:#fff !important;
     color:#000 !important;
 }
 
-.white-text-white-fonts {
+.white-text-black-background {
     background:#000 !important;
     color:#fff !important;
 }
 
-.green-text-white-fonts {
+.green-text-brown-background {
     background: #3B2716 !important;
     color:#A9E44D !important;
 }
 
-.blue-text-white-fonts {
+.blue-text-light-background {
     background: #9DD1FF !important;
     color: #063462 !important;
 }
