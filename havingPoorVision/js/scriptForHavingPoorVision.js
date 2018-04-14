@@ -1,13 +1,22 @@
 $(document).ready(function() {
-    $('#poor-vision').click(function() {
-        var clases = ['fa-eye', 'fa-flip-horizontal', 'fa-eye-slash'];
+    var iToggleClases = ['fa-eye', 'fa-flip-horizontal', 'fa-eye-slash'];
 
+    $('#poor-vision').click(function() {
         $('.visually-impaired').slideToggle(0, function() {
-            for (var i = 0; i < clases.length; i++) {
-                $('#poor-vision i').toggleClass(clases[i])
+            for (var i = 0; i < iToggleClases.length; i++) {
+                $('#poor-vision i').toggleClass(iToggleClases[i]);
             }
             $('#container').toggleClass('container-margin-top');
         });        
+    });
+
+    $('#off-visually-impaired').click(function() {
+        $('.visually-impaired').slideToggle(0, function() {
+            for (var i = 0; i < iToggleClases.length; i++) {
+                $('#poor-vision i').toggleClass(iToggleClases[i]);
+            }
+            $('#container').toggleClass('container-margin-top');
+        });
     });
 
     $('#small-fonts').click(function() {

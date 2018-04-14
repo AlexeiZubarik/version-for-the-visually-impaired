@@ -62,6 +62,10 @@
     cursor: pointer;
 }
 
+.visually-impaired .button i {
+    color: #000;
+}
+
 #WhiteStyle {
     border: 1px solid #000;
     color:#000;
