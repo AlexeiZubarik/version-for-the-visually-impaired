@@ -4,14 +4,16 @@ var colorClasses = ['black-text-white-background', 'white-text-black-background'
 
 $(document).ready(function() {
     var controlPanel = false;
+    var infImg = false;
 
     $('#poor-vision').click(function() {
         controlPanel = !controlPanel;        
         toggleControlPanel();
-        
+
         if (controlPanel) {
             $('#inf-font').text('Средний шрифт');
-            $('#inf-style').text('Черным по белому');            
+            $('#inf-style').text('Черным по белому');
+            $('#inf-img').text('Включены');            
             $('#container *').addClass('medium-fonts').removeClass('small-fonts big-fonts');
             $('body, #container *').addClass('black-text-white-background').removeClass('white-text-black-background blue-text-light-background green-text-brown-background');
         }
@@ -66,6 +68,14 @@ $(document).ready(function() {
 
     $('#imgs').click(function() {
         var imgs = $('img');
+        
+        if (infImg) {
+            $('#inf-img').text('Включены');
+        } else {
+            $('#inf-img').text('Выключены');
+        }
+
+        infImg = !infImg;
 
         for (var i = 0; i < imgs.length; i++) {
             removeElement(imgs[i]);
