@@ -1,22 +1,17 @@
-$(document).ready(function() {
-    var iToggleClases = ['fa-eye', 'fa-flip-horizontal', 'fa-eye-slash'];
+var iconClases = ['fa-eye', 'fa-eye-slash', 'fa-flip-horizontal'];
+var fontsClasses = ['small-fonts', 'medium-fonts', 'big-fonts'];
+var colorClasses = ['black-text-white-background', 'white-text-black-background', 'blue-text-light-background', 'green-text-brown-background'];
 
+$(document).ready(function() {
     $('#poor-vision').click(function() {
-        $('.visually-impaired').slideToggle(0, function() {
-            for (var i = 0; i < iToggleClases.length; i++) {
-                $('#poor-vision i').toggleClass(iToggleClases[i]);
-            }
-            $('#container').toggleClass('container-margin-top');
-        });        
+        toggleControlPanel();
+
+        $('#container *').addClass('medium-fonts').removeClass('small-fonts big-fonts');
+        $('body, #container *').addClass('black-text-white-background').removeClass('white-text-black-background blue-text-light-background green-text-brown-background');
     });
 
     $('#off-visually-impaired').click(function() {
-        $('.visually-impaired').slideToggle(0, function() {
-            for (var i = 0; i < iToggleClases.length; i++) {
-                $('#poor-vision i').toggleClass(iToggleClases[i]);
-            }
-            $('#container').toggleClass('container-margin-top');
-        });
+        toggleControlPanel();
     });
 
     $('#small-fonts').click(function() {
@@ -32,26 +27,41 @@ $(document).ready(function() {
     });
 
     $('#white-style').click(function() {
-        $('body').addClass('black-text-white-fonts').removeClass('white-text-white-fonts blue-text-white-fonts green-text-white-fonts');
-        $('#container *').addClass('black-text-white-fonts').removeClass('white-text-white-fonts blue-text-white-fonts green-text-white-fonts');
+        $('body, #container *').addClass('black-text-white-background').removeClass('white-text-black-background blue-text-light-background green-text-brown-background');
     });
 
     $('#black-style').click(function() {
-        $('body').addClass('white-text-white-fonts').removeClass('black-text-white-fonts blue-text-white-fonts green-text-white-fonts');
-        $('#container *').addClass('white-text-white-fonts').removeClass('black-text-white-fonts blue-text-white-fonts green-text-white-fonts');
+        $('body, #container *').addClass('white-text-black-background').removeClass('black-text-white-background blue-text-light-background green-text-brown-background');
     });
 
     $('#blue-style').click(function() {
-        $('body').addClass('blue-text-white-fonts').removeClass('black-text-white-fonts white-text-white-fonts green-text-white-fonts');
-        $('#container *').addClass('blue-text-white-fonts').removeClass('black-text-white-fonts white-text-white-fonts green-text-white-fonts');
+        $('body, #container *').addClass('blue-text-light-background').removeClass('black-text-white-background white-text-black-background green-text-brown-background');
     });
 
     $('#green-style').click(function() {
-        $('body').addClass('green-text-white-fonts').removeClass('black-text-white-fonts white-text-white-fonts blue-text-white-fonts');
-        $('#container *').addClass('green-text-white-fonts').removeClass('black-text-white-fonts white-text-white-fonts blue-text-white-fonts');
+        $('body, #container *').addClass('green-text-brown-background').removeClass('black-text-white-background white-text-black-background blue-text-light-background');
     });
 
+    $('#imgs').click(function() {
+
+    });
 });
+
+function toggleControlPanel() {
+    for (var i = 0; i < iconClases.length; i++) {
+        $('#poor-vision i').toggleClass(iconClases[i]);
+    }        
+    $('.visually-impaired').slideToggle('slow'); 
+    $('#container').toggleClass('container-margin-top');
+    
+    for (var i = 0; i < fontsClasses.length; i++) {
+        $('#container *').removeClass(fontsClasses[i]);
+    }
+
+    for (var i = 0; i < colorClasses.length; i++) {
+        $('body, #container *').removeClass(colorClasses[i]);
+    }
+}
 
 
     // if ($.cookie('CecutientCookie') === 'on') {
