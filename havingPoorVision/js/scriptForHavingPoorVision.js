@@ -3,47 +3,73 @@ var fontsClasses = ['small-fonts', 'medium-fonts', 'big-fonts'];
 var colorClasses = ['black-text-white-background', 'white-text-black-background', 'blue-text-light-background', 'green-text-brown-background'];
 
 $(document).ready(function() {
-    $('#poor-vision').click(function() {
-        toggleControlPanel();
+    var controlPanel = false;
 
-        $('#container *').addClass('medium-fonts').removeClass('small-fonts big-fonts');
-        $('body, #container *').addClass('black-text-white-background').removeClass('white-text-black-background blue-text-light-background green-text-brown-background');
+    $('#poor-vision').click(function() {
+        controlPanel = !controlPanel;        
+        toggleControlPanel();
+        
+        if (controlPanel) {
+            $('#inf-font').text('Средний шрифт');
+            $('#inf-style').text('Черным по белому');            
+            $('#container *').addClass('medium-fonts').removeClass('small-fonts big-fonts');
+            $('body, #container *').addClass('black-text-white-background').removeClass('white-text-black-background blue-text-light-background green-text-brown-background');
+        }
     });
 
     $('#off-visually-impaired').click(function() {
+        controlPanel = !controlPanel; 
         toggleControlPanel();
     });
 
     $('#small-fonts').click(function() {
+        var title = $(this).attr('title');
+        $('#inf-font').text(title);
         $('#container *').addClass('small-fonts').removeClass('medium-fonts big-fonts');
     });
 
     $('#medium-fonts').click(function() {
+        var title = $(this).attr('title');
+        $('#inf-font').text(title);
         $('#container *').addClass('medium-fonts').removeClass('small-fonts big-fonts');
     });
 
     $('#big-fonts').click(function() {
+        var title = $(this).attr('title');
+        $('#inf-font').text(title);
         $('#container *').addClass('big-fonts').removeClass('small-fonts medium-fonts');
     });
 
     $('#white-style').click(function() {
+        var title = $(this).attr('title');
+        $('#inf-style').text(title);
         $('body, #container *').addClass('black-text-white-background').removeClass('white-text-black-background blue-text-light-background green-text-brown-background');
     });
 
     $('#black-style').click(function() {
+        var title = $(this).attr('title');
+        $('#inf-style').text(title);
         $('body, #container *').addClass('white-text-black-background').removeClass('black-text-white-background blue-text-light-background green-text-brown-background');
     });
 
     $('#blue-style').click(function() {
+        var title = $(this).attr('title');
+        $('#inf-style').text(title);
         $('body, #container *').addClass('blue-text-light-background').removeClass('black-text-white-background white-text-black-background green-text-brown-background');
     });
 
     $('#green-style').click(function() {
+        var title = $(this).attr('title');
+        $('#inf-style').text(title);
         $('body, #container *').addClass('green-text-brown-background').removeClass('black-text-white-background white-text-black-background blue-text-light-background');
     });
 
     $('#imgs').click(function() {
+        var imgs = $('img');
 
+        for (var i = 0; i < imgs.length; i++) {
+            removeElement(imgs[i]);
+        }
     });
 });
 
@@ -323,66 +349,63 @@ function toggleControlPanel() {
 //     });
 	
 	
-// function removeElement(element) {
-//     let div = null
-//     const prevElement = element.previousSibling;
-// if(prevElement !== null){
-// 	if(prevElement.className !== undefined)
-// 	{
-//     if (~prevElement.className.indexOf('fake-img') || ~prevElement.className.indexOf('fake-img hide')) {
-//         div = prevElement;          
-//     }
-//     }
-//       else {
-//         div = createDivElement(element);        
-//         element.parentNode.insertBefore(div, element);
-// 	}
-// }
-//     toggle(element, 'hide');
-//     toggle(div, 'hide'); 
-// 	$('.fake-img').removeClass("whiteTableForImage blackTableForImage blueTableForImage greenTableForImage");
-// 	 if ($.cookie("style")==="white"){$('.fake-img').addClass("whiteTableForImage");}
-//      if ($.cookie("style")==="black"){$('.fake-img').addClass("blackTableForImage");}
-//      if ($.cookie("style")==="blue"){$('.fake-img').addClass("blueTableForImage");}
-//      if ($.cookie("style")==="green"){$('.fake-img').addClass("greenTableForImage");}
-// }
+function removeElement(element) {
+    let div = null;
+    const prevElement = element.previousSibling;
+    if (prevElement !== null) {
+	    if (prevElement.className !== undefined) {
+            if (~prevElement.className.indexOf('fake-img') || ~prevElement.className.indexOf('fake-img hide')) {
+                div = prevElement;          
+            }
+        } else {
+            div = createDivElement(element);        
+            element.parentNode.insertBefore(div, element);
+	    }
+    }
+    toggle(element, 'hide');
+    toggle(div, 'hide');
+    $('.fake-img').addClass('whiteTableForImage'); 
+	// $('.fake-img').removeClass('whiteTableForImage blackTableForImage blueTableForImage greenTableForImage');
+	// if ($.cookie("style")==="white"){$('.fake-img').addClass("whiteTableForImage");}
+    // if ($.cookie("style")==="black"){$('.fake-img').addClass("blackTableForImage");}
+    // if ($.cookie("style")==="blue"){$('.fake-img').addClass("blueTableForImage");}
+    // if ($.cookie("style")==="green"){$('.fake-img').addClass("greenTableForImage");}
+}
 
 
-// function createDivElement(imgElem) {
-//     const height = imgElem.height;
-//     const width = imgElem.width;
-//     const alt = imgElem.alt;
-//     const div = document.createElement('div');
+function createDivElement(imgElem) {
+    const height = imgElem.height;
+    const width = imgElem.width;
+    const alt = imgElem.alt;
+    const div = document.createElement('div');
 
-//     div.className = 'fake-img hide';
-//     div.style.height = `${height}px`;
-//     div.style.width = `${width}px`;
+    div.className = 'fake-img hide';
+    div.style.height = `${height}px`;
+    div.style.width = `${width}px`;
 
-//     if (alt) {
-//         div.innerText = alt;
-//     } else {
-//         div.innerText = 'Нет описания к изображению';
-//     }
+    if (alt) {
+        div.innerText = alt;
+    } else {
+        div.innerText = 'Нет описания к изображению';
+    }
 
-//     return div;
-// }
+    return div;
+}
 
-// function toggle(element, className) {
-//     if (element !== null) {
-//         if (element.classList) {
-//             element.classList.toggle(className);
-//         } else {
-//             const classes = element.className.split(' ');
-//             const i = classes.indexOf(className);
+function toggle(element, className) {
+    if (element !== null) {
+        if (element.classList) {
+            element.classList.toggle(className);
+        } else {
+            const classes = element.className.split(' ');
+            const i = classes.indexOf(className);
 
-//             if (i >= 0) {
-//                 classes.splice(i, 1);
-//             } else {
-//                 classes.push(className);
-//                 element.className = classes.join(' ');
-//             }
-//         }
-// 	}
-// }	
-	
-// });
+            if (i >= 0) {
+                classes.splice(i, 1);
+            } else {
+                classes.push(className);
+                element.className = classes.join(' ');
+            }
+        }
+	}
+}	

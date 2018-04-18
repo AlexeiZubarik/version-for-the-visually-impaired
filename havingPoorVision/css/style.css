@@ -4,7 +4,7 @@
     display: none; 
     top: 0;
     width: 100%;
-    padding: 20px 0;
+    padding: 10px 0;
     background: #fff;
     z-index: 1000;
     overflow: hidden;
@@ -14,7 +14,7 @@
 }
 
 .container-margin-top {
-    margin-top: 140px;
+    margin-top: 143px;
 }
 
 .visually-impaired .container {
@@ -37,9 +37,17 @@
 }
 
 .visually-impaired .col p {
+    color: #000;
+}
+
+.visually-impaired .col p:first-child {
     margin-top: 0;
     margin-bottom: 10px;
-    color: #000;
+}
+
+.visually-impaired .col p:last-child {
+    margin-top: 10px;
+    margin-bottom: 0;
 }
 
 .visually-impaired .col p,
