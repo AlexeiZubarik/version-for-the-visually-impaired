@@ -74,29 +74,6 @@
     color: #000;
 }
 
-#WhiteStyle {
-    border: 1px solid #000;
-    color:#000;
-}
-#BlackStyle {
-    border: 1px solid #000;
-    color:#fff;
-    background-color:#000;
-}
-#BlueStyle {
-    border: 1px solid #063462;
-    color:#063462;
-    background-color:#9DD1FF;
-}
-#GreenStyle {
-    border: 1px solid #A9E44D;
-    color:#A9E44D;
-    background-color:#3B2716;
-}
-#CecutientTop, .CecutientTopMenu {
-    display: none;
-}
-
 .small-font {
     font-size: 14px !important;
 }
@@ -110,39 +87,27 @@
 }
 
 .white-style {
-    background:#fff !important;
-    color:#000 !important;
+    background: #fff !important;
+    color: #000 !important;
+    border-color: #000 !important;
 }
 
 .black-style {
-    background:#000 !important;
-    color:#fff !important;
+    background: #000 !important;
+    color: #fff !important;
+    border-color: #fff !important;
 }
 
 .green-style {
-    background: #3B2716 !important;
-    color:#A9E44D !important;
+    background: #3b2716 !important;
+    color: #a9e44d !important;
+    border-color: #a9e44d !important;
 }
 
 .blue-style {
     background: #9DD1FF !important;
     color: #063462 !important;
-}
-
-.whiteTable {    
-    border-color: #000 !important;
-}
-
-.blackTable {
-    border-color: #fff !important;
-}
-
-.blueTable {
     border-color: #063462 !important;
-}
-
-.greenTable{
-	border-color: #A9E44D !important;
 }
 
 .fake-img {
@@ -151,29 +116,14 @@
     box-sizing: border-box;
     text-align: center;
     vertical-align: middle;
+    border: 2px dashed;
 }
 
 .hide {
     display: none;
 }
 
-.greenTableForImage {
-    border : 2px dashed #A9E44D !important;
-}
-
-.whiteTableForImage {
-    border : 2px dashed #000 !important;
-}
-
-.blackTableForImage {
-    border : 2px dashed #fff !important;
-}
-
-.blueTableForImage {
-    border : 2px dashed #063462 !important;
-}
-
 .linkClass {
-	text-decoration : underline !important;
-	font-weight : bold !important;
+	text-decoration: underline !important;
+	font-weight: bold !important;
 }
