@@ -77,19 +77,11 @@ function applyStyle(selectors, className, arrayClasses) {
     $(selectors).addClass(className).removeClass(removeClasses.join(' '));
 }
 
-function toggleControlPanel() {
-    for (var i = 0; i < iconClases.length; i++) {
-        $('#poor-vision i').toggleClass(iconClases[i]);
-    }   
-    
-    for (var i = 0; i < fontsClasses.length; i++) {
-        $('#container *').removeClass(fontsClasses[i]);
-    }
-
-    for (var i = 0; i < colorClasses.length; i++) {
-        $('body, #container *').removeClass(colorClasses[i]);
-    }
-
+function toggleControlPanel() {    
+    $('#poor-vision i').toggleClass(iconClases.join(' '));
+    $('#container *').removeClass(fontsClasses.join(' '));
+    $('body, #container *').removeClass(colorClasses.join(' '));
+   
     if(infImg) {
         var imgs = $('img');
         
@@ -104,11 +96,11 @@ function toggleControlPanel() {
 }
 	
 function removeElement(element) {
-    let div = null;
-    const prevElement = element.previousSibling;
-    if (prevElement !== null) {
+    var div = null;
+    var prevElement = element.previousSibling;
+    if (prevElement) {
 	    if (prevElement.className !== undefined) {
-            if (~prevElement.className.indexOf('fake-img') || ~prevElement.className.indexOf('fake-img hide')) {
+            if (prevElement.className.match(/fake-img/)) {
                 div = prevElement;          
             }
         } else {
@@ -127,10 +119,10 @@ function removeElement(element) {
 }
 
 function createDivElement(imgElem) {
-    const height = imgElem.height;
-    const width = imgElem.width;
-    const alt = imgElem.alt;
-    const div = document.createElement('div');
+    var height = imgElem.height;
+    var width = imgElem.width;
+    var alt = imgElem.alt;
+    var div = document.createElement('div');
 
     div.className = 'fake-img hide';
     div.style.height = `${height}px`;
