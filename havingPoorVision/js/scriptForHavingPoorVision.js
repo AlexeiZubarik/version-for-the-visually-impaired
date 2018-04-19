@@ -11,11 +11,9 @@ $(document).ready(function() {
         toggleControlPanel();
 
         if (controlPanel) {
-            $('#inf-font').text('Средний шрифт');
-            $('#inf-style').text('Черным по белому');
-            $('#inf-img').text('Включены');            
-            $('#container *').addClass('medium-font').removeClass('small-font big-font');
-            $('body, #container *').addClass('white-style').removeClass('black-style blue-style green-style');
+            applyStyle('#container *', 'medium-font', fontsClasses);
+            applyStyle('body, #container *', 'white-style', colorClasses);            
+            $('#inf-img').text('Включены'); 
        }
     });
 
@@ -25,45 +23,31 @@ $(document).ready(function() {
     });
 
     $('#small-font').click(function() {
-        var title = $(this).attr('title');
-        $('#inf-font').text(title);
-        $('#container *').addClass('small-font').removeClass('medium-font big-font');
+        applyStyle('#container *', 'small-font', fontsClasses);
     });
 
     $('#medium-font').click(function() {
-        var title = $(this).attr('title');
-        $('#inf-font').text(title);
-        $('#container *').addClass('medium-font').removeClass('small-font big-font');
+        applyStyle('#container *', 'medium-font', fontsClasses);
     });
 
     $('#big-font').click(function() {
-        var title = $(this).attr('title');
-        $('#inf-font').text(title);
-        $('#container *').addClass('big-font').removeClass('small-font medium-font');
+        applyStyle('#container *', 'big-font', fontsClasses);
     });
 
     $('#white-style').click(function() {
-        var title = $(this).attr('title');
-        $('#inf-style').text(title);
-        $('body, #container *').addClass('white-style').removeClass('black-style blue-style green-style');
+        applyStyle('body, #container *', 'white-style', colorClasses);
     });
 
     $('#black-style').click(function() {
-        var title = $(this).attr('title');
-        $('#inf-style').text(title);
-        $('body, #container *').addClass('black-style').removeClass('white-style blue-style green-style');
+        applyStyle('body, #container *', 'black-style', colorClasses);        
     });
 
     $('#blue-style').click(function() {
-        var title = $(this).attr('title');
-        $('#inf-style').text(title);
-        $('body, #container *').addClass('blue-style').removeClass('white-style black-style green-style');
+        applyStyle('body, #container *', 'blue-style', colorClasses);
     });
 
     $('#green-style').click(function() {
-        var title = $(this).attr('title');
-        $('#inf-style').text(title);
-        $('body, #container *').addClass('green-style').removeClass('white-style black-style blue-style');
+        applyStyle('body, #container *', 'green-style', colorClasses);        
     });
 
     $('#imgs').click(function() {
@@ -82,6 +66,16 @@ $(document).ready(function() {
         }
     });
 });
+
+function applyStyle(selectors, className, arrayClasses) {
+    var title = $('#' + className).attr('title');
+    var removeClasses = arrayClasses.filter(function(element){
+        return element !== className;
+    });
+
+    $('#inf' + className.match(/-\w+/)).text(title);
+    $(selectors).addClass(className).removeClass(removeClasses.join(' '));
+}
 
 function toggleControlPanel() {
     for (var i = 0; i < iconClases.length; i++) {
