@@ -116,9 +116,9 @@ function removeElement(element) {
             element.parentNode.insertBefore(div, element);
 	    }
     }
-    toggle(element, 'hide');
-    toggle(div, 'hide');
-    $('.fake-img').addClass('whiteTableForImage'); 
+    
+    $(element).toggleClass('hide');
+    $(div).toggleClass('hide');
 	// $('.fake-img').removeClass('whiteTableForImage blackTableForImage blueTableForImage greenTableForImage');
 	// if ($.cookie("style")==="white"){$('.fake-img').addClass("whiteTableForImage");}
     // if ($.cookie("style")==="black"){$('.fake-img').addClass("blackTableForImage");}
@@ -143,22 +143,4 @@ function createDivElement(imgElem) {
     }
 
     return div;
-}
-
-function toggle(element, className) {
-    if (element !== null) {
-        if (element.classList) {
-            element.classList.toggle(className);
-        } else {
-            const classes = element.className.split(' ');
-            const i = classes.indexOf(className);
-
-            if (i >= 0) {
-                classes.splice(i, 1);
-            } else {
-                classes.push(className);
-                element.className = classes.join(' ');
-            }
-        }
-	}
 }	
