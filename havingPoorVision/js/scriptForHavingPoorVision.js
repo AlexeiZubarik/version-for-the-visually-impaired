@@ -1,6 +1,6 @@
 var iconClases = ['fa-eye', 'fa-eye-slash', 'fa-flip-horizontal'];
 var fontsClasses = ['small-font', 'medium-font', 'big-font'];
-var colorClasses = ['black-text-white-background', 'white-text-black-background', 'blue-text-light-background', 'green-text-brown-background'];
+var colorClasses = ['white-style', 'black-style', 'blue-style', 'green-style'];
 var infImg = false;
 
 $(document).ready(function() {
@@ -15,7 +15,7 @@ $(document).ready(function() {
             $('#inf-style').text('Черным по белому');
             $('#inf-img').text('Включены');            
             $('#container *').addClass('medium-font').removeClass('small-font big-font');
-            $('body, #container *').addClass('black-text-white-background').removeClass('white-text-black-background blue-text-light-background green-text-brown-background');
+            $('body, #container *').addClass('white-style').removeClass('black-style blue-style green-style');
        }
     });
 
@@ -45,25 +45,25 @@ $(document).ready(function() {
     $('#white-style').click(function() {
         var title = $(this).attr('title');
         $('#inf-style').text(title);
-        $('body, #container *').addClass('black-text-white-background').removeClass('white-text-black-background blue-text-light-background green-text-brown-background');
+        $('body, #container *').addClass('white-style').removeClass('black-style blue-style green-style');
     });
 
     $('#black-style').click(function() {
         var title = $(this).attr('title');
         $('#inf-style').text(title);
-        $('body, #container *').addClass('white-text-black-background').removeClass('black-text-white-background blue-text-light-background green-text-brown-background');
+        $('body, #container *').addClass('black-style').removeClass('white-style blue-style green-style');
     });
 
     $('#blue-style').click(function() {
         var title = $(this).attr('title');
         $('#inf-style').text(title);
-        $('body, #container *').addClass('blue-text-light-background').removeClass('black-text-white-background white-text-black-background green-text-brown-background');
+        $('body, #container *').addClass('blue-style').removeClass('white-style black-style green-style');
     });
 
     $('#green-style').click(function() {
         var title = $(this).attr('title');
         $('#inf-style').text(title);
-        $('body, #container *').addClass('green-text-brown-background').removeClass('black-text-white-background white-text-black-background blue-text-light-background');
+        $('body, #container *').addClass('green-style').removeClass('white-style black-style blue-style');
     });
 
     $('#imgs').click(function() {
